@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithm Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Sorting Algorithm Visualizer</h1>
+            <p>Visualize and understand different sorting algorithms</p>
+        </header>
+
+        <!-- Controls Panel -->
+        <div class="controls-panel">
+            <div class="control-group">
+                <label for="algorithm-select" class="form-label">Algorithm</label>
+                <select id="algorithm-select" class="form-control">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                    <option value="radix">Radix Sort</option>
+                    <option value="counting">Counting Sort</option>
+                    <option value="shell">Shell Sort</option>
+                    <option value="cocktail">Cocktail Sort</option>
+                    <option value="bucket">Bucket Sort</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="array-size" class="form-label">Array Size: <span id="size-value">50</span></label>
+                <input type="range" id="array-size" class="slider" min="10" max="100" value="50">
+            </div>
+
+            <div class="control-group">
+                <label for="speed-control" class="form-label">Speed: <span id="speed-value">50ms</span></label>
+                <input type="range" id="speed-control" class="slider" min="1" max="100" value="50">
+            </div>
+
+            <div class="control-group">
+                <label for="input-type" class="form-label">Input Type</label>
+                <select id="input-type" class="form-control">
+                    <option value="random">Random</option>
+                    <option value="nearly-sorted">Nearly Sorted</option>
+                    <option value="reversed">Reversed</option>
+                    <option value="few-unique">Few Unique Values</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="generate-btn" class="btn btn--secondary">Generate New Array</button>
+            <button id="start-btn" class="btn btn--primary">Start Sort</button>
+            <button id="pause-btn" class="btn btn--outline" style="display: none;">Pause</button>
+            <button id="reset-btn" class="btn btn--outline">Reset</button>
+            <button id="stop-btn" class="btn btn--outline">Stop</button>
+        </div>
+
+        <!-- Statistics Panel -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Algorithm:</span>
+                <span id="current-algorithm" class="stat-value">Bubble Sort</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time Complexity:</span>
+                <span id="time-complexity" class="stat-value">O(n²)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Comparisons:</span>
+                <span id="comparisons" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Swaps:</span>
+                <span id="swaps" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time Elapsed:</span>
+                <span id="time-elapsed" class="stat-value">0ms</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <!-- Visualization Container -->
+        <div id="visualization-container" class="visualization-container">
+            <div id="array-bars" class="array-bars"></div>
+        </div>
+
+        <!-- Algorithm Description -->
+        <div class="algorithm-description">
+            <h3>Algorithm Description</h3>
+            <p id="algorithm-desc">Compares adjacent elements and swaps them if in wrong order</p>
+        </div>
+
+        <!-- Color Legend -->
+        <div class="color-legend">
+            <div class="legend-item">
+                <div class="legend-color default"></div>
+                <span>Default</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color comparing"></div>
+                <span>Comparing</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color swapping"></div>
+                <span>Swapping</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color sorted"></div>
+                <span>Sorted</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color pivot"></div>
+                <span>Pivot/Key</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
